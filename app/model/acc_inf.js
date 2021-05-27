@@ -9,6 +9,7 @@ module.exports = app => {
             // defaultValue: uuid.v4()
         },
         account_name: STRING(20),
+        password: STRING(20),
         telephone: STRING(11),
         email: STRING(30),
         department: STRING(20),

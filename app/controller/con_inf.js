@@ -43,6 +43,7 @@ class conInfController extends Controller {
             where.business_type = body.business_type
         if (body.coupon_category)
             where.coupon_category = body.coupon_category
+
         const result = await ctx.model.CouInf.findAll({
             where: where
         });

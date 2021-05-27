@@ -25,6 +25,7 @@ module.exports = appInfo => {
     jwt: {
       secret: "bus",
     },
+    middleware: ['errorHandler'],
   };
 
   config.security = {
