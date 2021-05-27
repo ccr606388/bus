@@ -22,6 +22,9 @@ module.exports = appInfo => {
   // add your user config here
   const userConfig = {
     // myAppName: 'egg',
+    jwt: {
+      secret: "bus",
+    },
   };
 
   config.security = {
@@ -60,6 +63,7 @@ module.exports = appInfo => {
     delegate: 'model',
     baseDir: 'model',
   };
+
 
   return {
     ...config,

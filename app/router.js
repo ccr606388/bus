@@ -9,10 +9,14 @@ module.exports = app => {
 
   //db test 
   router.get('/dbtest', controller.home.dbtest)
-  router.post('/api/con_inf/add', controller.conInf.add);
-  router.post('/api/con_inf/query', controller.conInf.query);
+  router.post('/api/cou_inf/add', controller.conInf.add);
+  router.post('/api/cou_inf/query', controller.conInf.query);
 
-  //user
-  router.post('/api/usertest', controller.usertest.add)
+  //account
+  router.post('/api/account', controller.account.add);
+  router.post('/api/login', controller.account.login);
+  router.get('/api/account', controller.account.query);
+  router.delete('/api/account', controller.account.delete);
+  router.put('/api/account', controller.account.upddate);
 
 };
