@@ -11,7 +11,7 @@
  Target Server Version : 50139
  File Encoding         : 65001
 
- Date: 19/05/2021 15:58:47
+ Date: 26/05/2021 23:54:52
 */
 
 SET NAMES utf8mb4;
@@ -29,24 +29,30 @@ CREATE TABLE `inf_por_ass`  (
 ) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Compact;
 
 -- ----------------------------
--- Table structure for user_information
+-- Table structure for user_inf
 -- ----------------------------
-DROP TABLE IF EXISTS `user_information`;
-CREATE TABLE `user_information`  (
+DROP TABLE IF EXISTS `user_inf`;
+CREATE TABLE `user_inf`  (
   `user_id` int(11) NOT NULL AUTO_INCREMENT,
-  `user_name` varchar(20) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
+  `user_name` varchar(20) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
   `real_name` varchar(20) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
-  `creation_time` date NULL DEFAULT NULL,
-  `status` bit(1) NULL DEFAULT NULL,
-  `founder` bit(1) NULL DEFAULT NULL,
+  `creation_time` datetime NOT NULL,
+  `founder` int(1) NOT NULL COMMENT '0:测试，1：系统，',
+  `status` bit(1) NOT NULL COMMENT '0：未绑定；1：绑定',
   PRIMARY KEY (`user_id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Compact;
+) ENGINE = InnoDB AUTO_INCREMENT = 3 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Compact;
 
 -- ----------------------------
--- Table structure for user_portrait
+-- Records of user_inf
 -- ----------------------------
-DROP TABLE IF EXISTS `user_portrait`;
-CREATE TABLE `user_portrait`  (
+INSERT INTO `user_inf` VALUES (1, 'lingmo', '梁録伟', '2021-05-19 00:00:00', 1, b'1');
+INSERT INTO `user_inf` VALUES (2, 'ceshi', NULL, '2021-05-19 00:00:00', 0, b'0');
+
+-- ----------------------------
+-- Table structure for user_por
+-- ----------------------------
+DROP TABLE IF EXISTS `user_por`;
+CREATE TABLE `user_por`  (
   `uid` int(11) NOT NULL,
   `age` tinyint(1) UNSIGNED NULL DEFAULT NULL,
   `gender` char(1) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
