@@ -1,33 +1,9 @@
-# graduation-project
+# 安装nodejs
+# npm install
+# npm run dev
+# 添加接口步骤
+- app/router.js中添加接口
+- model文件夹中添加对应数据库模型代码
+- controller/中添加对应的处理逻辑即可
 
-luwei Liang 's graduation project
-
-## QuickStart
-
-<!-- add docs here for user -->
-
-see [egg docs][egg] for more detail.
-
-### Development
-
-```bash
-$ npm i
-$ npm run dev
-$ open http://localhost:7001/
-```
-
-### Deploy
-
-```bash
-$ npm start
-$ npm stop
-```
-
-### npm scripts
-
-- Use `npm run lint` to check code style.
-- Use `npm test` to run unit test.
-- Use `npm run autod` to auto detect dependencies upgrade, see [autod](https://www.npmjs.com/package/autod) for more detail.
-
-
-[egg]: https://eggjs.org
+# 数据库链接配置在config/config.default.js中

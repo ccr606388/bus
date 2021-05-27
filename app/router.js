@@ -12,4 +12,7 @@ module.exports = app => {
   router.post('/api/con_inf/add', controller.conInf.add);
   router.post('/api/con_inf/query', controller.conInf.query);
 
+  //user
+  router.post('/api/usertest', controller.usertest.add)
+
 };

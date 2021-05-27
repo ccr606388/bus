@@ -34,9 +34,9 @@ class conInfController extends Controller {
         const where = {};
 
         if (body.start_time)
-            where.start_time = { [Op.lt]: body.start_time }
+            where.start_time = { [Op.gt]: body.start_time }
         if (body.end_time)
-            where.end_time = { [Op.gt]: body.end_time }
+            where.end_time = { [Op.lt]: body.end_time }
         if (body.coupon_type)
             where.coupon_type = body.coupon_type
         if (body.business_type)
