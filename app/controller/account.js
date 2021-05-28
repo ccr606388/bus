@@ -13,9 +13,7 @@ class accountController extends Controller {
             creation_time: new Date()
         })
 
-        this.success({
-            ...result
-        });
+        this.success(result);
     }
 
     async delete() {
@@ -60,7 +58,7 @@ class accountController extends Controller {
         console.log(ctx.request.query)
         const where = {}
         if (account_name)
-            where.account_name = account_name
+            where.account_name = { [Op.like]: `%${account_name}%` }
         if (account_id)
             where.account_id = account_id
         if (start_time && end_time)
@@ -77,7 +75,7 @@ class accountController extends Controller {
     async update() {
         const { ctx } = this;
         const { body } = ctx.request;
-        const { account_name, start_time, end_time, account_id } = ctx.request.body;
+        const { account_id } = ctx.request.body;
         const result = await ctx.model.AccInf.update({
             ...body,
             // creation_time: new Date()

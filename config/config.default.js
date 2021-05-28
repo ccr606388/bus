@@ -26,6 +26,10 @@ module.exports = appInfo => {
       secret: "bus",
     },
     middleware: ['errorHandler'],
+    multipart: {
+      mode: 'file',
+      whitelist: () => true,
+    },
   };
 
   config.security = {
