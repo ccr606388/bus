@@ -19,7 +19,16 @@ class accountController extends Controller {
     }
 
     async delete() {
+        const { ctx } = this;
+        const { account_id } = ctx.request.body;
 
+        const result = await ctx.model.AccInf.destroy({
+            where: {
+                account_id
+            }
+        })
+
+        this.success(result);
     }
 
     async login() {
@@ -40,7 +49,7 @@ class accountController extends Controller {
         if (result.password !== password)
             ctx.throw(403, "密码错误")
 
-        this.success("登陆成功")
+        this.success(result)
     }
 
     async query() {
@@ -66,7 +75,15 @@ class accountController extends Controller {
     }
 
     async update() {
+        const { ctx } = this;
+        const { body } = ctx.request;
+        const { account_name, start_time, end_time, account_id } = ctx.request.body;
+        const result = await ctx.model.AccInf.update({
+            ...body,
+            // creation_time: new Date()
+        }, { where: { account_id } })
 
+        this.success(result)
     }
 }
 
