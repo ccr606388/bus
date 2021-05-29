@@ -26,4 +26,11 @@ module.exports = app => {
   router.delete('/api/user', controller.user.delete);
   router.post('/api/user/import', controller.user.importUser);
 
+  // multitude
+  router.post('/api/multitude', controller.multitude.add);
+  router.get('/api/multitude', controller.multitude.query);
+  router.put('/api/multitude', controller.multitude.update);
+  router.delete('/api/multitude', controller.multitude.delete);
+  router.post('/api/multitude/export', controller.multitude.exportMul);
+
 };
