@@ -1,0 +1,674 @@
+{
+	"info": {
+		"_postman_id": "2ded0225-46b0-458c-8816-0c1c813c8954",
+		"name": "bus",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "dbtest",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:7002/dbtest",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "7002",
+					"path": [
+						"dbtest"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "add con inf",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"cid\":\"11111\",\n    \"activity_id\": \"123\",\n    \"business_type\": 1,\n    \"coupon_type\": 1,\n    \"card_id\": \"dsadsadad\",\n    \"coupon_category\": 123,\n    \"start_time\": \"2001-09-09\",\n    \"end_time\": \"2001-01-01\",\n    \"discount\": 1.1,\n    \"reducion\": 2.2,\n    \"superimpose\": 1,\n    \"auto_select\": 1,\n    \"is_effective\": 1\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:7001/api/con_inf",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "7001",
+					"path": [
+						"api",
+						"con_inf"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "query con inf",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"start_time\":\"2001-09-09 09:00:00\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:7001/api/con_inf/query",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "7001",
+					"path": [
+						"api",
+						"con_inf",
+						"query"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "account add",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"account_name\":\"admin1\",\n    \"password\":\"123\",\n    \"telephone\":\"11111111111\",\n    \"email\":\"123@qq.com\",\n    \"department\":\"市场部\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:7001/api/account",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "7001",
+					"path": [
+						"api",
+						"account"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "account query",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:7001/api/account?start_time=2021-05-27 17:04:02&end_time=2021-05-27 17:04:11&account_id=10&account_name=admin3",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "7001",
+					"path": [
+						"api",
+						"account"
+					],
+					"query": [
+						{
+							"key": "start_time",
+							"value": "2021-05-27 17:04:02"
+						},
+						{
+							"key": "end_time",
+							"value": "2021-05-27 17:04:11"
+						},
+						{
+							"key": "account_id",
+							"value": "10"
+						},
+						{
+							"key": "account_name",
+							"value": "admin3"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "account login",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"account_name\":\"admin1\",\n    \"password\":\"123\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:7001/api/login",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "7001",
+					"path": [
+						"api",
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "account delete",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"account_id\":\"admin1\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:7001/api/account",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "7001",
+					"path": [
+						"api",
+						"account"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "account update",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"account_id\":10,\n    \"account_name\":\"admin1\",\n    \"password\":\"123\",\n    \"telephone\":\"11111111111\",\n    \"email\":\"123@qq.com\",\n    \"department\":\"市场部\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:7001/api/account",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "7001",
+					"path": [
+						"api",
+						"account"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "user add",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"user_name\":\"user_3\",\n    \"real_name\":\"realname1\",\n    \"founder\":\"admin1\",\n    \"age\":11,\n    \"gender\":\"1\",\n    \"location\":\"北京\",\n    \"status\":1\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:7001/api/user",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "7001",
+					"path": [
+						"api",
+						"user"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "user query",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:7001/api/user?user_id=5",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "7001",
+					"path": [
+						"api",
+						"user"
+					],
+					"query": [
+						{
+							"key": "start_time",
+							"value": "2021-05-27 17:04:02",
+							"disabled": true
+						},
+						{
+							"key": "end_time",
+							"value": "2021-05-27 17:04:11",
+							"disabled": true
+						},
+						{
+							"key": "user_name",
+							"value": "user_4",
+							"disabled": true
+						},
+						{
+							"key": "user_id",
+							"value": "5"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "user delete",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"user_id\":\"4\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:7001/api/user",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "7001",
+					"path": [
+						"api",
+						"user"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "user update",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"user_id\":11,\n    \"user_name\":\"user_4\",\n    \"real_name\":\"realname1\",\n    \"founder\":\"admin1\",\n    \"age\":11,\n    \"gender\":\"1\",\n    \"location\":\"北京\",\n    \"status\":1\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:7001/api/user",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "7001",
+					"path": [
+						"api",
+						"user"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "user import",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"warning": "This is a duplicate header and will be overridden by the Content-Type header generated by Postman.",
+						"key": "Content-Type",
+						"value": "multipart/form-data",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "file",
+							"type": "file",
+							"src": "/Users/edz/graduation-project/user_data.json"
+						}
+					],
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:7001/api/user/import",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "7001",
+					"path": [
+						"api",
+						"user",
+						"import"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "multitude add",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"mul_name\":\"人群1\",\n    \"founder\":1,\n    \"status\":1,\n    \"start_age\":11,\n    \"end_age\":\"22\",\n    \"gender_select\":3,\n    \"location\":\"北京\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:7001/api/multitude",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "7001",
+					"path": [
+						"api",
+						"multitude"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "multitude query",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:7001/api/multitude",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "7001",
+					"path": [
+						"api",
+						"multitude"
+					],
+					"query": [
+						{
+							"key": "start_time",
+							"value": "2021-05-27 17:04:02",
+							"disabled": true
+						},
+						{
+							"key": "end_time",
+							"value": "2021-05-27 17:04:11",
+							"disabled": true
+						},
+						{
+							"key": "mul_name",
+							"value": "群",
+							"disabled": true
+						},
+						{
+							"key": "mul_id",
+							"value": "4",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "multitude delete",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"mul_id\":\"4\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:7001/api/multitude",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "7001",
+					"path": [
+						"api",
+						"multitude"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "multitude update",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"mul_id\":7,\n    \"mul_name\":\"新的人群\",\n    \"founder\":1,\n    \"status\":1,\n    \"start_age\":11,\n    \"end_age\":\"22\",\n    \"gender_select\":3,\n    \"location\":\"北京\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:7001/api/multitude",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "7001",
+					"path": [
+						"api",
+						"multitude"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "multitude import",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"warning": "This is a duplicate header and will be overridden by the Content-Type header generated by Postman.",
+						"key": "Content-Type",
+						"value": "multipart/form-data",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "file",
+							"type": "file",
+							"src": "/Users/edz/graduation-project/user_data.json"
+						}
+					],
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:7001/api/multitude/export",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "7001",
+					"path": [
+						"api",
+						"multitude",
+						"export"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
