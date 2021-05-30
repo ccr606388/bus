@@ -30,7 +30,7 @@ class accountController extends Controller {
     }
 
     async login() {
-        const { ctx } = this;
+        const { ctx, app } = this;
         const { account_name, password } = ctx.request.body;
 
         const result = await ctx.model.AccInf.findOne({
@@ -47,7 +47,9 @@ class accountController extends Controller {
         if (result.password !== password)
             ctx.throw(403, "密码错误")
 
-        this.success(result)
+        const token = app.jwt.sign({ name: result.account_name, id: result.account_id }, app.config.jwt.secret, { expiresIn: '120h' });
+
+        this.success({ token })
     }
 
     async query() {

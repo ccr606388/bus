@@ -8,9 +8,11 @@ class userController extends Controller {
     async add() {
         const { ctx } = this;
         const { body } = ctx.request;
+        const { name } = ctx.state.user;
 
         const result = await ctx.model.UserInf.create({
             ...body,
+            founder: name,
             creation_time: new Date()
         })
 

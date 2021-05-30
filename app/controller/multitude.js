@@ -8,9 +8,11 @@ class mulController extends Controller {
     async add() {
         const { ctx } = this;
         const { body } = ctx.request;
+        const { name } = ctx.state.user;
 
         const result = await ctx.model.MulInf.create({
             ...body,
+            founder: name,
             creation_time: new Date()
         })
 
@@ -88,11 +90,20 @@ class mulController extends Controller {
         const fileName = "export" + Date.now();
         // const fileName
         fs.writeFileSync(fileName, JSON.stringify(data));
-        ctx.attachment(fileName);
-        ctx.set('Content-Type', 'application/octet-stream');
-        ctx.body = fs.createReadStream(fileName);
+
+        this.success({ url: "http://127.0.0.1:7001/api/file/" + fileName })
+
 
         // this.success("success");
+    }
+
+    async download() {
+        const { ctx } = this;
+        const { file } = ctx.params;
+
+        ctx.attachment(file);
+        ctx.set('Content-Type', 'application/octet-stream');
+        ctx.body = fs.createReadStream(file);
     }
 }
 

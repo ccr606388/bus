@@ -8,8 +8,8 @@ module.exports = app => {
             primaryKey: true,
             // defaultValue: uuid.v4()
         },
-        activity_id: STRING(3),
-        business_type: INTEGER,
+        activity_id: STRING(64),
+        // business_type: INTEGER,
         coupon_type: INTEGER,
         card_id: STRING(20),
         coupon_category: INTEGER,
@@ -17,9 +17,11 @@ module.exports = app => {
         end_time: DATE,
         discount: FLOAT,
         reducion: DECIMAL,
-        superimpose: CHAR,
-        auto_select: CHAR,
-        is_effective: CHAR
+        // superimpose: CHAR,
+        // auto_select: CHAR,
+        // is_effective: CHAR
+        status: CHAR,
+        mul_id: INTEGER
     });
 
     return cou_inf;

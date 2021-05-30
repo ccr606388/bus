@@ -30,6 +30,9 @@ module.exports = appInfo => {
       mode: 'file',
       whitelist: () => true,
     },
+    jwt: {
+      secret: appInfo.name,
+    },
   };
 
   config.security = {
