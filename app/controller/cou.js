@@ -10,6 +10,7 @@ class couController extends Controller {
 
         const result = await ctx.model.CouInf.create({
             ...body,
+            status: "1"
             // creation_time: new Date()
         })
 
@@ -32,14 +33,14 @@ class couController extends Controller {
     async query() {
         const { ctx, app } = this;
         const { Op } = app.Sequelize;
-        const { activity_id, start_time, end_time, card_id } = ctx.request.query;
+        const { activity_id, start_time, end_time, card_name } = ctx.request.query;
 
         console.log(ctx.request.query)
         const where = {}
         if (activity_id)
             where.activity_id = { [Op.like]: `%${activity_id}%` }
-        if (card_id)
-            where.card_id = { [Op.like]: `%${card_id}%` }
+        if (card_name)
+            where.card_name = { [Op.like]: `%${card_name}%` }
         if (start_time && end_time)
             where.creation_time = { [Op.gte]: start_time, [Op.lte]: end_time }
 
@@ -61,6 +62,25 @@ class couController extends Controller {
         }, { where: { cid } })
 
         this.success(result)
+    }
+
+    async count() {
+        const { ctx, app } = this;
+        const { time } = ctx.request.body;
+        const { Op } = app.Sequelize;
+        const percnt = await ctx.model.PreInf.count();
+        // console.log(percnt)
+        const coucnt = await ctx.model.CouInf.count();
+        // const now = new Date()
+        const inper = await ctx.model.PreInf.count({ where: { start_time: { [Op.lte]: time }, end_time: { [Op.gte]: time } } });
+        const incou = await ctx.model.CouInf.count({ where: { start_time: { [Op.lte]: time }, end_time: { [Op.gte]: time } } });
+
+        this.success({
+            total: percnt + coucnt,
+            in: inper + incou,
+            out: percnt + coucnt - incou - inper
+        })
+
     }
 }
 

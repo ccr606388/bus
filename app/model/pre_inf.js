@@ -9,6 +9,7 @@ module.exports = app => {
             // defaultValue: uuid.v4()
         },
         activity_id: STRING(64),
+        // business_type: STRING(64),
         card_id: STRING(20),
         inventory: INTEGER,
         con_inventory: INTEGER,

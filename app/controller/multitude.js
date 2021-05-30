@@ -13,6 +13,7 @@ class mulController extends Controller {
         const result = await ctx.model.MulInf.create({
             ...body,
             founder: name,
+            status: "1",
             creation_time: new Date()
         })
 

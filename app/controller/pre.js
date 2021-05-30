@@ -10,6 +10,7 @@ class preController extends Controller {
 
         const result = await ctx.model.PreInf.create({
             ...body,
+            status: 1
             // creation_time: new Date()
         })
 

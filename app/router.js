@@ -39,6 +39,7 @@ module.exports = app => {
   router.get('/api/cou', app.jwt, controller.cou.query);
   router.delete('/api/cou', app.jwt, controller.cou.delete);
   router.put('/api/cou', app.jwt, controller.cou.update);
+  router.post('/api/count', app.jwt, controller.cou.count);
 
   // card activity
   router.post('/api/pre', app.jwt, controller.pre.add);

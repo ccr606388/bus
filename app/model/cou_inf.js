@@ -9,9 +9,9 @@ module.exports = app => {
             // defaultValue: uuid.v4()
         },
         activity_id: STRING(64),
-        // business_type: INTEGER,
+        business_type: STRING(64),
         coupon_type: INTEGER,
-        card_id: STRING(20),
+        card_name: STRING(20),
         coupon_category: INTEGER,
         start_time: DATE,
         end_time: DATE,

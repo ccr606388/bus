@@ -13,6 +13,7 @@ class userController extends Controller {
         const result = await ctx.model.UserInf.create({
             ...body,
             founder: name,
+            status: "1",
             creation_time: new Date()
         })
 
