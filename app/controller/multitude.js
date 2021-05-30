@@ -87,11 +87,11 @@ class mulController extends Controller {
         const data = { user_data: people };
 
         // console.log(people);
-        const fileName = "export" + Date.now();
+        const fileName = "export" + Date.now() + ".json";
         // const fileName
         fs.writeFileSync(fileName, JSON.stringify(data));
 
-        this.success({ url: "http://127.0.0.1:7001/api/file/" + fileName })
+        this.success({ url: "/api/file/" + fileName })
 
 
         // this.success("success");

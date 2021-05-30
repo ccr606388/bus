@@ -49,7 +49,8 @@ class accountController extends Controller {
 
         const token = app.jwt.sign({ name: result.account_name, id: result.account_id }, app.config.jwt.secret, { expiresIn: '120h' });
 
-        this.success({ token })
+        this.success({ ...result, token })
+        // this.success({ token })
     }
 
     async query() {

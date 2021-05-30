@@ -32,12 +32,12 @@ class preController extends Controller {
     async query() {
         const { ctx, app } = this;
         const { Op } = app.Sequelize;
-        const { start_time, end_time, card_id } = ctx.request.query;
+        const { start_time, end_time, card_name } = ctx.request.query;
 
         console.log(ctx.request.query)
         const where = {}
-        if (card_id)
-            where.card_id = { [Op.like]: `%${card_id}%` }
+        if (card_name)
+            where.card_name = { [Op.like]: `%${card_name}%` }
         if (start_time && end_time)
             where.creation_time = { [Op.gte]: start_time, [Op.lte]: end_time }
 

@@ -15,6 +15,7 @@ module.exports = app => {
         start_time: DATE,
         end_time: DATE,
         status: CHAR,
+        card_name: STRING(20)
     });
 
     return pre_inf;

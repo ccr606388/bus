@@ -32,7 +32,7 @@ module.exports = app => {
   router.put('/api/multitude', app.jwt, controller.multitude.update);
   router.delete('/api/multitude', app.jwt, controller.multitude.delete);
   router.post('/api/multitude/export', app.jwt, controller.multitude.exportMul);
-  router.get('/api/file/:file', app.jwt, controller.multitude.download);
+  router.get('/api/file/:file', controller.multitude.download);
 
   // cou
   router.post('/api/cou', app.jwt, controller.cou.add);
